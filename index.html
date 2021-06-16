@@ -16,7 +16,7 @@
         <div>
           <div inverse-left></div>
           <div inverse-right></div>
-          <div range onclick="intervalOnClick()"></div>
+          <div range onclick="intervalOnClick(this)"></div>
           <span thumb></span>
           <span thumb></span>
           <div sign>
@@ -50,7 +50,7 @@
         <div>
           <div inverse-left></div>
           <div inverse-right></div>
-          <div range onclick="intervalOnClick()"></div>
+          <div range onclick="intervalOnClick(this)"></div>
           <span thumb></span>
           <span thumb></span>
           <div sign>
@@ -84,7 +84,7 @@
         <div>
           <div inverse-left></div>
           <div inverse-right></div>
-          <div range onclick="intervalOnClick()"></div>
+          <div range onclick="intervalOnClick(this)"></div>
           <span thumb></span>
           <span thumb></span>
           <div sign>
@@ -117,6 +117,7 @@
 
     <button onclick="toggleThumbs()">Toggle thumbs</button>
     <button onclick="toggleReadOnly()">Toggle readonly</button>
+    <button onclick="addSlider()">Add slider</button>
     <script>
       const inputs = document.getElementsByTagName('input');
       startOnInput(inputs[0]);

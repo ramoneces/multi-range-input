@@ -5,10 +5,10 @@ function startOnInput(input) {
       parseInt(input.value) -
     (100 / (parseInt(input.max) - parseInt(input.min))) * parseInt(input.min);
   const children = input.parentNode.childNodes[1].childNodes;
-  children[1].style.width = value + "%";
-  children[5].style.left = value + "%";
-  children[7].style.left = value + "%";
-  children[11].style.left = value + "%";
+  children[1].style.width = value + '%';
+  children[5].style.left = value + '%';
+  children[7].style.left = value + '%';
+  children[11].style.left = value + '%';
   children[11].childNodes[1].innerHTML = new Date(
     parseInt(input.value)
   ).toLocaleString();
@@ -24,34 +24,43 @@ function endOnInput(input) {
       parseInt(input.value) -
     (100 / (parseInt(input.max) - parseInt(input.min))) * parseInt(input.min);
   const children = input.parentNode.childNodes[1].childNodes;
-  children[3].style.width = 100 - value + "%";
-  children[5].style.right = 100 - value + "%";
-  children[9].style.left = value + "%";
-  children[13].style.left = value + "%";
+  children[3].style.width = 100 - value + '%';
+  children[5].style.right = 100 - value + '%';
+  children[9].style.left = value + '%';
+  children[13].style.left = value + '%';
   children[13].childNodes[1].innerHTML = new Date(
     parseInt(input.value)
   ).toLocaleString();
-  console.log(input.value);
+  // console.log(input.value);
 }
 
-function intervalOnClick() {
-  alert("pinchaste en intervalo!");
+function intervalOnClick(interval) {
+  const ranges = document.querySelectorAll('[range]');
+  ranges.forEach((range) => {
+    range.style.backgroundColor = range === interval ? 'red' : null;
+  });
+  // alert("pinchaste en intervalo!");
 }
 
 var readonly = false;
 function toggleReadOnly() {
   readonly = !readonly;
-  const inputs = document.querySelectorAll("input");
+  const inputs = document.querySelectorAll('input');
   inputs.forEach((input) => {
-    input.style.display = readonly ? "none" : "block";
+    input.style.display = readonly ? 'none' : 'block';
   });
 }
 
 var showThumbs = true;
 function toggleThumbs() {
   showThumbs = !showThumbs;
-  const thumbs = document.querySelectorAll("[thumb]");
+  const thumbs = document.querySelectorAll('[thumb]');
   thumbs.forEach((thumb) => {
-    thumb.style.display = showThumbs ? "block" : "none";
+    thumb.style.display = showThumbs ? 'block' : 'none';
   });
+}
+
+function addSlider() {
+  const clone = document.querySelectorAll('[slider]')[0].cloneNode(true);
+  document.querySelectorAll('[wrapper]')[0].appendChild(clone);
 }
