@@ -1,0 +1,44 @@
+<div wrapper>
+  <div slider-background></div>
+  <div slider *ngFor="let range of ranges">
+    <div>
+      <div inverse-left style.width="{{ range.leftPercent }}%"></div>
+      <div inverse-right style.width="{{ 100 - range.rightPercent }}%"></div>
+      <div
+        range
+        style.left="{{ range.leftPercent }}%"
+        style.right="{{ 100 - range.rightPercent }}%"
+        [style.background-color]="range === selectedRange ? 'red' : 'green'"
+        (click)="selectedRange = range"
+      ></div>
+      <span thumb style.left="{{ range.leftPercent }}%"></span>
+      <span thumb style.left="{{ range.rightPercent }}%"></span>
+      <div sign style.left="{{ range.leftPercent }}%">
+        <span>{{ formatValue(range.start) }}</span>
+      </div>
+      <div sign style.left="{{ range.rightPercent }}%">
+        <span>{{ formatValue(range.end) }}</span>
+      </div>
+    </div>
+    <input
+      type="range"
+      tabindex="0"
+      [value]="range.start"
+      [min]="maxRange.start"
+      [max]="maxRange.end"
+      [step]="step"
+      [(ngModel)]="range.start"
+      (ngModelChange)="startOnInput($event, range)"
+    />
+    <input
+      type="range"
+      tabindex="0"
+      [value]="range.end"
+      [min]="maxRange.start"
+      [max]="maxRange.end"
+      [step]="step"
+      [(ngModel)]="range.end"
+      (ngModelChange)="endOnInput($event, range)"
+    />
+  </div>
+</div>
