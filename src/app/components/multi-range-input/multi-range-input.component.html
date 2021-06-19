@@ -28,7 +28,8 @@
       [max]="maxRange.end"
       [step]="step"
       [(ngModel)]="range.start"
-      (ngModelChange)="startOnInput($event, range)"
+      (change)="validateRangeStart(range)"
+      (ngModelChange)="applyRangeStartChange(range)"
     />
     <input
       type="range"
@@ -38,7 +39,8 @@
       [max]="maxRange.end"
       [step]="step"
       [(ngModel)]="range.end"
-      (ngModelChange)="endOnInput($event, range)"
+      (change)="validateRangeEnd(range)"
+      (ngModelChange)="applyRangeEndChange(range)"
     />
   </div>
 </div>
