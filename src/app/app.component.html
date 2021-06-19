@@ -14,6 +14,75 @@
   </mat-toolbar>
 </p>
 <div id="container">
-  <h1>Demo</h1>
-  <app-multi-range-input></app-multi-range-input>
+  <h1>Demos</h1>
+  <mat-accordion>
+    <!-- Demo 1 -->
+    <mat-expansion-panel [expanded]="true">
+      <mat-expansion-panel-header>
+        <mat-panel-title> Demo 1 </mat-panel-title>
+        <mat-panel-description>
+          Numeric ranges. Limits: {{ defaultInput.minValue }} to
+          {{ defaultInput.maxValue }}. Step: {{ defaultInput.step }}. These are
+          the default settings.
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <div>
+        <mat-slide-toggle #radonlyToggle>Read only</mat-slide-toggle>
+        <button mat-raised-button (click)="demo1AddRange()">
+          Append new range
+        </button>
+        <app-multi-range-input
+          #defaultInput
+          [ranges]="demo1Ranges"
+          [isReadOnly]="radonlyToggle.checked"
+        ></app-multi-range-input>
+        <table class="mat-elevation-z1">
+          <tr>
+            <th>Ranges ({{ demo1Ranges.length }})</th>
+            <th>Selected range</th>
+          </tr>
+          <tr>
+            <td>
+              <pre>{{ demo1Ranges | json }}</pre>
+            </td>
+            <td>
+              <pre>{{ defaultInput.selectedRange | json }}</pre>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </mat-expansion-panel>
+    <!-- Demo 2 -->
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title> Demo 2 </mat-panel-title>
+        <mat-panel-description>
+          Date ranges. Limits: year 2021. Step: 1 day.
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <app-multi-range-input
+        [minValue]="demo2MinValue"
+        [maxValue]="demo2MaxValue"
+        [step]="demo2Step"
+        [ranges]="demo2Ranges"
+        [valueFormatter]="dateValueFormatter"
+      ></app-multi-range-input>
+    </mat-expansion-panel>
+    <!-- Demo 3 -->
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title> Demo 3 </mat-panel-title>
+        <mat-panel-description>
+          DateTime ranges. Limits: august. Step: 1 shift (8 hours).
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <app-multi-range-input
+        [minValue]="demo3MinValue"
+        [maxValue]="demo3MaxValue"
+        [step]="demo3Step"
+        [ranges]="demo3Ranges"
+        [valueFormatter]="dateTimeValueFormatter"
+      ></app-multi-range-input>
+    </mat-expansion-panel>
+  </mat-accordion>
 </div>

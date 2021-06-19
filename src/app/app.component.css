@@ -5,3 +5,9 @@
 #container {
   padding: 2rem;
 }
+
+pre {
+  background-color: #ebebeb;
+  margin: 0;
+  padding: 1rem;
+}
