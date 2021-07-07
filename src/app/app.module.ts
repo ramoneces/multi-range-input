@@ -12,6 +12,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatTableModule } from '@angular/material/table';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
 
 import { MultiRangeInputComponent } from './components/multi-range-input/multi-range-input.component';
 
@@ -28,6 +29,7 @@ import { MultiRangeInputComponent } from './components/multi-range-input/multi-r
     MatGridListModule,
     MatSlideToggleModule,
     MatTableModule,
+    MatButtonToggleModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

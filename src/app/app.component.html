@@ -19,7 +19,11 @@
     <!-- Demo 1 -->
     <mat-expansion-panel [expanded]="true">
       <mat-expansion-panel-header>
-        <mat-panel-title> Demo 1 </mat-panel-title>
+        <mat-panel-title>
+          <mat-icon>event</mat-icon>
+          <mat-icon fontSet="las" fontIcon="la-sort-numeric-down"></mat-icon
+          >&nbsp; Demo 1
+        </mat-panel-title>
         <mat-panel-description>
           Numeric ranges. Limits: {{ defaultInput.minValue }} to
           {{ defaultInput.maxValue }}. Step: {{ defaultInput.step }}. These are
@@ -55,7 +59,10 @@
     <!-- Demo 2 -->
     <mat-expansion-panel>
       <mat-expansion-panel-header>
-        <mat-panel-title> Demo 2 </mat-panel-title>
+        <mat-panel-title>
+          <mat-icon fontSet="las" fontIcon="la-calendar"></mat-icon>&nbsp; Demo
+          2
+        </mat-panel-title>
         <mat-panel-description>
           Date ranges. Limits: year 2021. Step: 1 day.
         </mat-panel-description>
@@ -71,7 +78,9 @@
     <!-- Demo 3 -->
     <mat-expansion-panel>
       <mat-expansion-panel-header>
-        <mat-panel-title> Demo 3 </mat-panel-title>
+        <mat-panel-title
+          ><mat-icon fontSet="las" fontIcon="la-clock"></mat-icon>&nbsp; Demo 3
+        </mat-panel-title>
         <mat-panel-description>
           DateTime ranges. Limits: august. Step: 1 shift (8 hours).
         </mat-panel-description>
